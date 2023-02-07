@@ -1,0 +1,38 @@
+﻿@using WikiBird.Model.Entities
+
+@model List<Bird>
+@{
+
+}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Imagen
+            </th>
+
+            @foreach (var bird in Model)
+            {
+            <tr>
+                <td>
+                        @bird.Name
+
+                </td>
+                <td>
+                        @bird.Description
+                </td>
+                <td>
+                        @bird.Image
+                </td>
+            </tr>
+            }
+        </tr>
+    </thead>
+</table>
