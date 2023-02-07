@@ -14,7 +14,7 @@ namespace WikiBird.Service
 
 
 
-    public class BirdService : IBirdService
+    internal class BirdService : IBirdService
     {
         public WikiBirdContext wikiBirdContext;
 
@@ -31,7 +31,9 @@ namespace WikiBird.Service
 
         public void deleteBird(int id)
         {
-            throw new NotImplementedException();
+            var bird = wikiBirdContext.Birds.Find(id);
+            wikiBirdContext.Remove(bird);
+            wikiBirdContext.SaveChanges();
         }
 
         public List<Bird> getAll()
@@ -42,7 +44,16 @@ namespace WikiBird.Service
 
         public Bird getBird(int id)
         {
-            throw new NotImplementedException();
+
+            Bird bird = wikiBirdContext.Birds.Find(id);
+            if (bird != null)
+            {
+                return bird;
+            }
+            else
+            {
+                throw new Exception("No se encontró un ave con id: " + id);
+            }
         }
 
         /*  public String predictBird(String image)
