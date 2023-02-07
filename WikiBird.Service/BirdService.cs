@@ -14,7 +14,7 @@ namespace WikiBird.Service
 
 
 
-    internal class BirdService : IBirdService
+    public class BirdService : IBirdService
     {
         public WikiBirdContext wikiBirdContext;
 
