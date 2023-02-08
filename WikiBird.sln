@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBird.Web", "WikiBird.Web\WikiBird.Web.csproj", "{9FA2CED4-87E1-4F44-A37F-E634A07C6679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBird.Web", "WikiBird.Web\WikiBird.Web.csproj", "{9FA2CED4-87E1-4F44-A37F-E634A07C6679}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBird.Service", "WikiBird.Service\WikiBird.Service.csproj", "{E84DA596-39F4-4982-9598-F7EFE3E14180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBird.Service", "WikiBird.Service\WikiBird.Service.csproj", "{E84DA596-39F4-4982-9598-F7EFE3E14180}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiBird.Model", "WikiBird.Model\WikiBird.Model.csproj", "{4EF59710-A67C-4028-8091-A0C834DFA3C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WikiBird.Model", "WikiBird.Model\WikiBird.Model.csproj", "{4EF59710-A67C-4028-8091-A0C834DFA3C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
