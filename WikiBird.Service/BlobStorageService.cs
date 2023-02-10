@@ -12,7 +12,7 @@ namespace WikiBird.Service
     {
         public Task<List<string>> GetBlobAsync();
 
-        public Task UploadBlobAsync(string blobName, Stream stream);
+        public Task<string> UploadBlobAsync(string blobName, Stream stream);
 
         public Task DeleteBlobAsync(string blobName);
     }
@@ -44,10 +44,11 @@ namespace WikiBird.Service
             return blobs;
         }
 
-        public async Task UploadBlobAsync(string blobName, Stream stream)
+        public async Task<string> UploadBlobAsync(string blobName, Stream stream)
         {
             BlobClient blobClient = _containerClient.GetBlobClient(blobName);
             await blobClient.UploadAsync(stream, overwrite: true);
+            return blobClient.Uri.AbsoluteUri;
         }
     }
 }

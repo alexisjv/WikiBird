@@ -1,4 +1,6 @@
-﻿using WikiBird.Model.Entities;
+﻿
+
+using WikiBird.Model.Entities;
 
 namespace WikiBird.Service
 {

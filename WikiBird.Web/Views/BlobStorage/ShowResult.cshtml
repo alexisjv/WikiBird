@@ -1,15 +1,7 @@
-﻿@model List<string>
+﻿@model string
 
 <div class="row">
     <div class="row">
-        @if (Model != null)
-        {
-            @foreach (string img in Model)
-            {
-                <div class="row">
-                    <img src="https://wikibirdstorage.blob.core.windows.net/birds/@img">
-                </div>
-            }
-        }
+        <h1>El ave buscada es un: @Model</h1>
     </div>
 </div>
