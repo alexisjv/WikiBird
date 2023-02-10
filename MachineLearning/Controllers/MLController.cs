@@ -1,29 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using static System.Net.WebRequestMethods;
+﻿using MachineLearning.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MachineLearning.Controllers
 {
     public class MLController : Controller
     {
-        
+
+        private IMLService mLService;
+
+        public MLController(IMLService mLService)
+        {
+            this.mLService = mLService;
+        }
+
         public void Index()
         {
-
-
         }
 
         [HttpPost]
         public async Task<IActionResult> UploadImage(IFormFile image)
         {
             if (image == null || image.Length == 0)
-                return Content("image not selected");
-
-            var path = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\images", image.FileName);
-            Console.WriteLine("la ruta de la imagen es: " + path);
-            using (var stream = new FileStream(path, FileMode.Create))
             {
-                await image.CopyToAsync(stream);
+                return Content("Seleccione una imagen válida");
             }
+
+            string path = await mLService.uploadImage(image);
 
             return RedirectToAction("PredictBird", new { imagePath = path });
         }
@@ -31,17 +33,15 @@ namespace MachineLearning.Controllers
         public IActionResult PredictBird(string imagePath)
         {
 
-            //Load sample data
-            var sampleData = new MLModel.ModelInput()
-            {
-                ImageSource = imagePath
-            };
+            var result = mLService.predictBird(imagePath);
 
-            //Load model and predict output
-            var result = MLModel.Predict(sampleData);
+            mLService.deleteImage(imagePath);
+
             return Ok(result.Prediction);
 
         }
+
+
 
     }
 }
