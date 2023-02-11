@@ -1,6 +1,6 @@
 using Azure.Storage.Blobs;
 using WikiBird.Model.Entities;
-using WikiBird.Service;
+using WikiBird.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
 builder.Services.AddScoped<WikiBirdContext>();
 builder.Services.AddScoped<IBirdService, BirdService>();
+builder.Services.AddScoped<IMLService, MLService>();
 
 builder.Services.AddSingleton(new BlobServiceClient(builder.Configuration.GetConnectionString("BlobStorage")));
 
@@ -32,6 +33,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=BlobStorage}/{action=Index}/{id?}");
+    pattern: "{controller=Bird}/{action=Index}/{id?}");
 
 app.Run();

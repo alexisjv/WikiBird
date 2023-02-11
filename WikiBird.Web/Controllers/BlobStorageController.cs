@@ -2,7 +2,7 @@
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using WikiBird.Service;
+using WikiBird.Web.Services;
 
 namespace BlobStorageApi.Controllers
 {

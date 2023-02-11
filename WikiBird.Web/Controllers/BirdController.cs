@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WikiBird.Model.Entities;
-using WikiBird.Service;
+using WikiBird.Web.Services;
 
 namespace WikiBird.Web.Controllers
 {
@@ -46,11 +46,5 @@ namespace WikiBird.Web.Controllers
             return View();
         }
 
-        /*  [HttpPost]
-          public IActionResult PredictBird(String image)
-          {
-              ViewBag.Name = birdService.predictBird(image);
-              return View();
-          }*/
     }
 }
