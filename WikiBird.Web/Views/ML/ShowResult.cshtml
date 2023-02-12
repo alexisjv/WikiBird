@@ -1,7 +1,20 @@
-﻿@model string
+﻿@using WikiBird.Model
 
-<div class="row">
-    <div class="row">
-        <h1>El ave buscada es un: @Model</h1>
+
+<div class="container h-100 d-flex justify-content-center">
+    <div class="showResultCard">
+        <div class="showResultContainer">
+            <img src="@Model.image" class="showResultImage">
+        </div>
+        <div class="showResultText">
+            <div class="showResultTitle">
+                <h1>Nombre del ave buscada:</h1>
+                <a class="birdTitle" href="https://es.wikipedia.org/wiki/@Model.title">@Model.title</a>
+
+            </div>
+            <div class="showResultDescription">
+                <p>@Model.description</p>
+            </div>
+        </div>
     </div>
 </div>
